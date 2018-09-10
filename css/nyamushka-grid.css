@@ -9,7 +9,7 @@
   -ms-grid-rows: 1fr minmax(800px, min-content) 1fr;
   grid-template-rows: 1fr minmax(800px, -webkit-min-content) 1fr;
   grid-template-rows: 1fr minmax(800px, min-content) 1fr;
-  background: #ccc url(/images/pages/nyamushka-grid/pattern.png) 50% 50%;
+  background: #ccc url(../images/pages/nyamushka-grid/pattern.png) 50% 50%;
 }
 
 @media only screen and (max-width: 460px) {

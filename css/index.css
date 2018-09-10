@@ -25,14 +25,14 @@
 }
 
 .social__fb {
-  background-image: url(/images/sprite.png);
+  background-image: url(../images/sprite.png);
   background-position: 0 0;
   width: 32px;
   height: 32px;
 }
 
 .social__tw {
-  background-image: url(/images/sprite.png);
+  background-image: url(../images/sprite.png);
   background-position: -32px 0;
   width: 32px;
   height: 32px;
@@ -42,7 +42,7 @@
 
 /* icon from block example-png */
 .icon-tw {
-  background-image: url(/images/sprite.png);
+  background-image: url(../images/sprite.png);
   background-position: -32px 0;
   width: 32px;
   height: 32px;
