@@ -22,7 +22,12 @@ export default () => ({
                 test: /\.(:?sass|scss|css)$/i,
                 include: resolve(__dirname, '../src'),
                 use: [
-                    isWDS ? 'style-loader' : loader,
+                    isWDS
+                        ? 'style-loader'
+                        : {
+                              loader,
+                              options: { publicPath: '../' },
+                          },
                     // process '@import' and 'url()' like `'require'
                     {
                         loader: 'css-loader',

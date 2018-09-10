@@ -13,7 +13,7 @@ export default () => ({
                 options: {
                     regExp: /(blocks|layouts|pages)[\\/]+([^\\/]+)[\\/]+(images[\\/]+)?(.+)\.(jpe?g|png)$/,
                     name: '[1]/[2]/[4].[ext]',
-                    // name: "[path][name].[ext]",
+                    // name: '[path][name].[ext]',
                     outputPath: 'images/',
                 },
             },

@@ -46,7 +46,7 @@ let common = merge.smart([
         output: {
             path: resolve(__dirname, 'dist'),
             filename: isProd ? 'js/[name].[chunkhash:5].js' : 'js/[name].js',
-            publicPath: '/',
+            // publicPath: '/',
             pathinfo: false,
         },
         //

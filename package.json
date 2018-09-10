@@ -9,7 +9,8 @@
         "start": "cross-env START_SERVER=browsersync npm run build:dev -- --watch",
         "server": "browser-sync start --server dist --files dist --port 3000",
         "precommit": "lint-staged",
-        "eslint": "eslint ."
+        "eslint": "eslint .",
+        "deploy": "gh-pages -d dist"
     },
     "lint-staged": {
         "*.{js, jsx}": [
@@ -49,6 +50,7 @@
         "eslint-loader": "^2.1.0",
         "eslint-plugin-prettier": "^2.6.2",
         "file-loader": "^1.1.11",
+        "gh-pages": "^1.2.0",
         "html-beautify-webpack-plugin": "^1.0.5",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^0.14.3",
