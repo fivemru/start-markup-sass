@@ -1,0 +1,7 @@
+mixin product-list(products, title='Ты сегодня покормил кота?')
+    .product-list&attributes(attributes)
+        h2.product-list__title= title
+        ul.product-list__items
+            if products
+                each product in products
+                    +product(product)(class='product-list__item')

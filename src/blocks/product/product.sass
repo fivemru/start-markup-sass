@@ -1,0 +1,186 @@
+@import helpers
+    
+/* product */
+
+$bg-default: #1698d9
+$bg-default-hover: #2ea8e6
+$bg-checked: #d91667
+$bg-checked-hover: #e62e7a
+$bg-disabled: #b3b3b3
+
+$color-title: #000
+$color-labels: #666
+$color-header-checked-hover: #e62e7a
+$color-footer-disabled: #ffff66
+$color-disabled: #b3b3b3
+
+.product
+    position: relative
+    display: flex
+    flex-direction: column
+    width: 320px
+    flex-shrink: 0
+    color: #000
+    +font('Trebuchet MS')
+    line-height: 1
+    list-style: none
+    
+    &__container
+        position: relative
+        height: 480px
+        padding: 4px
+        border-radius: 12px
+        background-image: linear-gradient(135deg, transparent 30px, $bg-default 30px)
+        cursor: pointer
+        
+    &__content
+        position: relative
+        height: 100%
+        padding: 20px 45px
+        border-radius: 8px
+        background-image: linear-gradient(135deg, transparent 29px, #f2f2f2 29px)
+        overflow: hidden
+        
+    &__header
+        margin-top: -1px
+        margin-bottom: 10px
+        color: $color-labels
+        font-size: 16px
+
+        &-checked
+            display: none
+            color: $color-header-checked-hover
+
+    &__name
+        margin-left: -2px
+        margin-bottom: 4px
+        font-size: 48px
+        font-weight: 700
+
+    &__taste
+        margin-bottom: 17px
+        font-size: 24px
+        font-weight: 700
+
+    &__features
+        margin-bottom: 16px
+        color: $color-labels
+        font-size: 14px
+        line-height: 16px
+        list-style: none
+
+    &__weight-container
+        position: absolute
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 80px
+        height: 80px
+        right: 11px
+        bottom: 11px
+        overflow: hidden
+        color: #fff
+        background-color: #1698d9
+        border-radius: 50%
+
+    &__weight
+        margin-top: 10px
+        font-size: 42px
+
+    &__unit
+        margin-top: -2px
+        font-size: 21px
+
+    &__image
+        position: absolute
+        left: -26.5px
+        bottom: -91.5px
+
+    &__checkbox
+        position: absolute
+        opacity: 1
+
+    &__footer
+        padding-top: 14px
+        color: #fff
+        text-shadow: 0 1px 0 #000000
+        text-align: center
+        font-size: 13px
+        line-height: 16px
+
+        &-checked
+            display: none
+
+        &-disabled
+            display: none
+            color: $color-footer-disabled
+    
+    &__footer-link
+        color: $bg-default
+        text-decoration: none
+        border-bottom: 1px dashed $bg-default
+
+        &:hover
+            color: $bg-default-hover
+            border-color: $bg-default-hover
+
+    /* States */
+
+    &__container:hover
+        background-image: linear-gradient(135deg, transparent 30px, $bg-default-hover 30px)
+        
+        [class$='__weight-container']
+            background-color: $bg-default-hover
+
+    &[data-checked] 
+        .product__container
+            background-image: linear-gradient(135deg, transparent 30px, $bg-checked 30px)
+            
+    &[data-disabled] 
+        .product__container
+            color: $color-disabled
+            background-image: linear-gradient(135deg, transparent 30px, $bg-disabled 30px)
+    
+        [class$='__weight-container']
+            background-color: $bg-disabled
+
+    &[data-checked]
+        [class$='__weight-container']
+            background-color: $bg-checked
+
+        [class$='__footer-default'],
+        [class$='__footer-disabled']
+            display: none
+
+        [class$='__footer-checked']
+            display: block
+
+    &[data-checked]
+        .product__container:hover
+            background-image: linear-gradient(135deg, transparent 30px, $bg-checked-hover 30px)
+            
+            [class$='__weight-container']
+                background-color: $bg-checked-hover
+
+    &[data-checked]:not([data-mouseleave])
+        .product__container:hover
+            [class$='__header-default']
+                display: none
+            
+            [class$='__header-checked']
+                display: block
+
+    &[data-disabled]
+        [class$='__image']
+            opacity: .5
+        
+        [class$='__features'],
+        [class$='__header']
+            color: $color-disabled
+
+        [class$='__footer-default'],
+        [class$='__footer-checked']
+            display: none
+
+        [class$='__footer-disabled']
+            display: block

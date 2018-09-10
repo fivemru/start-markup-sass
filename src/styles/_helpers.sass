@@ -1,0 +1,90 @@
+@import vars
+@import 'generated/png-sprite'
+
+@function getColor($name: lime)
+    @return map-get($colors, $name)
+
+@function getSize($size: lg)
+    @return map-get($screen-sizes, $size)
+
+@function fontStack($stack) 
+    @return map-get($font-fallback, $stack)
+
+@function getStyle($name) 
+    @return map-get($font-style, $name)
+
+@function str-replace($string, $search, $replace: "")
+	$index: str-index($string, $search);
+
+	@if $index
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+	
+	@return $string
+
+=vac()
+    top: 50%
+    transform: translateY(-50%)
+
+=fwfh
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    
+=img($url, $size: auto)
+    background-image: url(quote($url))
+    background-size: $size
+
+=style($name)
+    $params: getStyle($name)
+    +font($params...)
+
+=font($name, $size: null, $style: null, $weight: null, $line-height: null)
+    font-family: fontStack($name)
+    font-size: $size
+    font-style: $style
+    font-weight: $weight
+    line-height: $line-height
+
+=font-face($family, $path, $style: normal, $weight: normal, $exts: woff2 woff, $range: null)
+    $src: null
+
+    @each $ext in $exts
+        $format: $ext
+        @if $ext == 'svg'
+            $ext: $ext + '#' + str-replace($family, ' ', '')
+        @if $ext == 'eot'
+            $src: append($src, url(quote($path + '.' + $ext)) format('eot'))
+            $ext: $ext + '?#iefix'
+        
+        $src: append($src, url(quote($path + '.' + $ext)) format(quote($format)), comma)
+	
+    @font-face
+        font-family: $family
+        font-weight: $weight
+        font-style: $style
+        src: $src
+        unicode-range: $range
+
+=mq-max($width) 
+    @media only screen and (max-width: $width)
+        @content
+
+=mq-min($width)
+    @media only screen and (min-width: $width)
+        @content
+
+=rotate($deg)
+    transform: rotate($deg + deg)
+
+=border($color: red, $size: 10px)
+    border-color: $color
+    border-width: $size
+    border-style: solid
+    @content
+
+=icon($file, $width: 20px, $height: 20px, $fill: null)
+    width: $width
+    height: $height
+    fill: $fill
+    background-image: url(quote($file))

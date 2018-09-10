@@ -1,0 +1,4 @@
+dist/**/*.js
+src/js/babel-external-helpers.js
+node_modules/**/*.js
+!.eslintrc.js

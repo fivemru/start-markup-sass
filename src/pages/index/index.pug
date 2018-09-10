@@ -1,0 +1,20 @@
+extends /layouts/main/main.pug
+include /blocks/example-png/example-png.pug
+
+block title
+    title Index.html
+
+
+block content
+    section.section.page__container
+        .content.section__content
+            h1.content__header Hello, I'm #{htmlWebpackPlugin.options.filename}
+            .content__description Description
+
+block result
+    +example-png
+
+    section.section.page__container
+        .section__content
+            h2._h2 The twitter icon from `example-png` block
+            .icon-tw

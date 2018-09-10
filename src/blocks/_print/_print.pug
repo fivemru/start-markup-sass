@@ -1,0 +1,20 @@
+mixin _print(data)
+    -
+        const res = (function print(a, level = 0) {
+            let res = '';
+            const tabs = '\t'.repeat(level);
+            if (typeof a === 'object') {
+                for(let k in a) {
+                    const item = a[k];
+                    res += (typeof item === 'object')
+                        ? `${tabs}${k} {\n` + print(item, ++level) + `${tabs}}\n`
+                        : `${tabs}${k}: ${item}\n`;
+                }
+            } else {
+                res = a;
+            }
+            return res
+        })(data)
+    pre
+        | 
+        | #{res} 

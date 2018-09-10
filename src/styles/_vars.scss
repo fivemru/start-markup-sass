@@ -1,0 +1,63 @@
+$html-font-size: 10px;
+
+$font-style: (
+    body: (
+        'Source Sans Pro',
+        1.6rem,
+        normal,
+        normal,
+        1.2,
+    ),
+    h1: (
+        'Source Sans Pro',
+        2.8rem,
+        normal,
+        bolder,
+        1.5,
+    ),
+    h2: (
+        'Source Sans Pro',
+        2.4rem,
+        normal,
+        bolder,
+        1.2,
+    ),
+);
+
+$font-fallback: (
+    'Source Sans Pro': (
+        'Source Sans Pro',
+        Arial,
+        sans-serif,
+    ),
+    'Exo 2': (
+        'Exo 2',
+        Arial,
+        sans-serif,
+    ),
+    'Trebuchet MS': (
+        'Trebuchet MS',
+        Arial,
+        sans-serif,
+    ),
+);
+
+$colors: (
+    link-bg-color: #e5eef5,
+    link-bg-color--hover: #f1f6f9,
+    link-bg-color--active: #ffe2a3,
+    link-menu-color: #20374a,
+    link-menu-color--hover: #20374a,
+    link-menu-color--active: #2b3a42,
+    link-separator: #d0dce1,
+    link-color: #00a5ff,
+    link-color--hover: #ff0000,
+    footer-bg-color: #d8f1fd,
+);
+
+$screen-sizes: (
+    lg: 960px,
+    md: 720px,
+    sm: 540px,
+    xs: 460px,
+)

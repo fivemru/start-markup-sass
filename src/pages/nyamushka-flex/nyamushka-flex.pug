@@ -1,0 +1,32 @@
+extends /layouts/main/main.pug
+include /blocks/product/product.pug
+include /blocks/product-list/product-list.pug
+
+block title
+    title Nyamushka (flexbox version)
+
+block content
+    section.section.page__container
+        .content.section__content
+            h1.content__header Nyamushka (flexbox version)
+            .content__description
+                |
+                |
+                p Test task from the 
+                    a(href="https://funbox.ru/vacancies/html-css-developer") fun-box.ru
+                    |  (
+                    a(href="https://dl.funbox.ru/qt-htmlcss.zip") zip
+                    | )
+                    |  page to the vacancy of the HTML/CSS developer.
+                |
+                |
+                p Items alignment was done using flexbox.
+                |
+                |
+        
+block result__content
+    - const { products } = htmlWebpackPlugin.options.data
+
+    section.result.section
+        .result__container
+            +product-list(products)

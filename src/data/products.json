@@ -1,0 +1,53 @@
+[
+    {
+        "id": "prod-1",
+        "headerText": "Сказочное заморское яство",
+        "headerCheckedHover": "Котэ не одобряет?",
+        "name": "Нямушка",
+        "taste": "с фуа-гра",
+        "features": [
+            { "amount": 10, "text": "порций" },
+            { "text": "мышь в подарок" }
+        ],
+        "weight": "0,5",
+        "footerDefault": "Чего сидишь? Порадуй котэ, ",
+        "footerChecked": "Печень утки разварная с артишоками.",
+        "footerDisabled": "Печалька, с фуа-гра закончился.",
+        "image": "cat.png"
+    },
+    {
+        "id": "prod-2",
+        "headerText": "Сказочное заморское яство",
+        "headerCheckedHover": "Котэ не одобряет?",
+        "name": "Нямушка",
+        "taste": "с рыбой",
+        "features": [
+            { "amount": 40, "text": "порций" },
+            { "amount": 2, "text": "мыши в подарок" }
+        ],
+        "weight": "2",
+        "footerDefault": "Чего сидишь? Порадуй котэ, ",
+        "footerChecked": "Головы щучьи с чесноком да свежайшая сёмгушка.",
+        "footerDisabled": "Печалька, с курой закончился.",
+        "image": "cat.png",
+        "checked": true
+    },
+    {
+        "id": "prod-3",
+        "headerText": "Сказочное заморское яство",
+        "headerCheckedHover": "Котэ не одобряет?",
+        "name": "Нямушка",
+        "taste": "с курой",
+        "features": [
+            { "amount": 100, "text": "порций" },
+            { "amount": 5, "text": "мышей в подарок" },
+            { "text": "заказчик доволен" }
+        ],
+        "weight": "5",
+        "footerDefault": "Чего сидишь? Порадуй котэ, ",
+        "footerChecked": "Головы щучьи с чесноком да свежайшая сёмгушка.",
+        "footerDisabled": "Печалька, с курой закончился.",
+        "image": "cat.png",
+        "disabled": true
+    }
+]

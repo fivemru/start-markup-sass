@@ -1,0 +1,300 @@
+@import helpers
+
+/* header */
+$animation-menu: .2s
+$transition-menu: .2s
+$animation-sub-menu: .1s
+$header-height: 7rem
+$mobile-menu-height: 6rem
+$mobile-size: 768px
+$mobile-menu__link-padding: 1.7rem 2.5rem
+$mobile-sub-menu__link-padding: 1.25rem 2.5rem
+
+.header
+    height: $header-height
+
+    +mq-max($mobile-size)
+        height: $mobile-menu-height
+        z-index: 2
+        padding: 0
+
+    &__overlay
+        position: fixed
+        content: ""
+        z-index: 0
+        visibility: hidden
+        opacity: 0
+        width: 100%
+        height: 100%
+        padding: 0 2rem
+        background-color: rgba(0,0,0, .3)
+        transition: visibility $animation-menu ease-out, opacity $animation-menu ease-out
+        top: $mobile-menu-height
+        left: 0
+
+    &__container
+        display: flex
+        flex-direction: row
+        z-index: 3
+        background-color: getColor(link-bg-color)
+
+        +mq-max($mobile-size)
+            padding: 0 2rem
+
+        &--fixed
+            position: fixed
+            width: 100%
+            max-width: getSize(lg)
+            z-index: 5
+
+    &__logo
+        display: flex
+        align-items: center
+        flex: 0 0 auto
+        margin-left: 2rem
+        margin-right: 2rem
+
+    &__menu-wrapper
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        flex: 1 0 auto
+        z-index: 1
+
+        +mq-max($mobile-size)
+            justify-content: flex-end
+            height: $mobile-menu-height
+
+    &__menu
+        +mq-max($mobile-size)
+            position: absolute
+            flex-direction: column
+            top: $mobile-menu-height
+            left: 0
+            width: 100%
+            visibility: hidden
+            background-color: getColor(link-bg-color--hover)
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
+
+    .sub-menu
+        +mq-max($mobile-size)
+            position: relative
+            animation: none 
+            visibility: hidden
+            max-height: 0
+            background-color: #fff
+
+            &__item
+                &:not([class$=__item--active]):not([class$=__item--opened]):hover
+                    background-color: transparent
+
+            &__link
+                padding: $mobile-sub-menu__link-padding
+
+            &__link:hover
+                text-decoration: underline
+
+            > .sub-menu__item > .sub-menu
+                left: 0
+                top: 0
+
+    .menu__item
+        +mq-max($mobile-size)
+            overflow: hidden
+            border-right: 0
+    
+            &:hover .sub-menu
+                animation: none
+                // transition: 0
+
+            &--opened
+                background-color: getColor(link-bg-color)
+
+                > .sub-menu
+                    visibility: hidden
+
+                &:hover
+                    background-color: getColor(link-bg-color)
+
+            &--active
+                background-color: getColor(link-bg-color--active)
+
+                &:hover
+                    background-color: getColor(link-bg-color--active)
+
+            &:not([class$=__item--active]):not([class$=__item--opened]):hover
+                background-color: getColor(link-bg-color)
+        
+    .menu__link
+        +mq-max($mobile-size)
+            padding: $mobile-menu__link-padding    
+
+    .menu__link-arrow,
+    .sub-menu__link-arrow
+        +mq-max($mobile-size)
+            transform: rotate(-45deg)
+            transition: transform $animation-sub-menu ease-out
+
+    .menu__item--opened,
+    .sub-menu__item--opened
+        +mq-max($mobile-size)
+            > .menu__link .menu__link-arrow,
+            > .sub-menu__link .sub-menu__link-arrow
+                transform: rotate(45deg)  
+
+    &__menu-btn
+        display: none
+        margin-right: 1rem
+        outline: 0
+        overflow: visible
+        cursor: pointer
+        background-color: transparent
+    
+        +mq-max($mobile-size)
+            display: block
+ 
+/* menu btn */
+$menu-btn-width: 24px
+$menu-btn-height: 24px
+$menu-btn-padding: 2px
+$menu-btn-line-height: 2px
+
+.menu-btn
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    justify-content: space-around
+    width: $menu-btn-width
+    height: $menu-btn-height
+    // margin: $menu-btn-padding
+    cursor: pointer
+    background-color: transparent
+
+    &:focus
+        outline: 0
+
+        &:before
+            position: absolute
+            content: ""
+            width: 100%
+            height: 100%
+            
+    & > *
+        // position: relative
+        height: $menu-btn-line-height
+
+        &:before
+            position: absolute
+            left: 0
+            height: $menu-btn-line-height
+            width: 100%
+            content: ""
+            background-color: getColor(link-menu-color)
+            opacity: 1
+            transition-property: transform, opacity, top
+            transition-duration: .3s
+            transition-timing-function: cubic-bezier(.68,-.25,.165,1.55)
+
+
+/* Modal close */
+.page--modal-closed
+    .header__menu
+        animation: hideHeaderMenu .2s
+        animation-duration: $animation-menu
+        transition-duration: $transition-menu
+        transition-timing-function: ease-out
+        animation-fill-mode: forwards
+
+    .menu__item
+        &--opened
+            > .sub-menu
+                visibility: hidden
+                transition: visibility $transition-menu
+                max-height: 0
+
+/* Modal open */
+.page--modal-opened
+    +mq-max($mobile-size)
+        z-index: 0
+        max-height: 100%
+        overflow: hidden
+
+    .menu-btn
+        +mq-max($mobile-size)
+            > *:before
+                // transition-timing-function: cubic-bezier(.68,-.55,.265,1.55)
+                // transition-duration: .1s
+                // transition-property: transform, opacity
+
+            &__top:before
+                top: $menu-btn-height/2
+                transform: rotate(45deg)
+            &__middle:before
+                opacity: 0   
+
+            &__bottom:before
+                top: $menu-btn-height/2
+                transform: rotate(-45deg)
+    .header__overlay
+        +mq-max($mobile-size)
+            visibility: visible
+            opacity: 1
+
+    .header__container
+        +mq-max($mobile-size)
+            position: absolute
+            width: 100%
+            left: 0
+
+    .header__container--fixed
+        +mq-max($mobile-size)
+            position: absolute
+
+
+    .header__menu
+        +mq-max($mobile-size)
+            visibility: visible
+            animation: showHeaderMenu
+            animation-duration: $animation-menu
+            transition-duration: $transition-menu
+
+    .sub-menu
+        +mq-max($mobile-size)
+            position: relative
+            max-height: 0
+            visibility: visible
+            animation: max-height $animation-sub-menu ease-out
+          
+    .menu__item
+        +mq-max($mobile-size)
+            &:hover > .sub-menu
+                visibility: visible
+
+            &--opened > .sub-menu
+                visibility: visible
+
+            &--active > .sub-menu
+                visibility: visible
+            
+            &--opened > .sub-menu &:before
+                transform: rotate(45deg)
+    
+@keyframes showHeaderMenu
+    from
+        transform: scale(.9)
+        opacity: 0
+    
+    to
+        transform: scale(1)
+        opacity: 1
+    
+@keyframes hideHeaderMenu
+    from
+        transform: scale(1)
+        opacity: 1
+        visibility: visible
+    to
+        transform: scale(.9)
+        opacity: 0
+        visibility: hidden

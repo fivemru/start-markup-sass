@@ -1,0 +1,18 @@
+@import helpers
+    
+/* section */
+
+.section
+    margin: 0 auto 2rem
+    
+    // +mq-mw(getSize(lg))
+    +mq-max(1000px)
+        padding-left: 2rem
+        padding-right: 2rem
+
+    &__content
+        padding: 1rem 2rem
+        background-color: #fff
+
+    &__content--transparent
+        background: none

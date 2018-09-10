@@ -1,0 +1,67 @@
+@import helpers
+ 
+/* nyamushka-grid */
+
+.result
+    position: relative
+    display: grid
+    grid-template-columns: 1fr min-content 1fr
+    grid-template-rows: 1fr minmax(800px, min-content) 1fr
+    background: #ccc url('./images/pattern.png') 50% 50%
+
+    +mq-max(getSize(xs))
+        padding: 0
+
+    &:before
+        position: absolute
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%)
+        content: " "
+        +fwfh
+
+    &__container
+        position: relative
+        grid-column: 2
+        grid-row: 2
+        align-self: center    
+
+$gap: 80px
+$col: 320px
+
+.product-list
+    margin: 40px auto
+
+    &__title
+        +font('Exo 2', 36px)
+        text-shadow: 0 1px 0 #000000
+        text-align: center
+        color: #ffffff
+        margin-bottom: 24px
+        padding-left: 1px
+
+    /* For IE 10+ */
+    &__item:nth-child(1)
+        grid-area: col1
+
+    &__item:nth-child(2)
+        grid-area: col2
+
+    &__item:nth-child(3)
+        grid-area: col3
+
+    &__items
+        display: grid
+        justify-content: center
+
+        gap: $gap
+        grid-template: "col1 col2 col3" / $col $col $col
+
+        +mq-max(1200px)
+            gap: $gap
+            grid-template: "col1 col2" "col3 col3" / $col $col
+            
+            [class$=__item]:nth-child(3)
+                justify-self: center
+
+        +mq-max(800px)
+            gap: $gap
+            grid-template: "col1" "col2" "col3" / $col

@@ -1,0 +1,40 @@
+include /blocks/logo/logo.pug
+include /blocks/menu/menu.pug
+
+mixin header()
+    header.header.section.page__container&attributes(attributes)
+        .header__overlay
+        .header__container
+            +logo()(class='header__logo')
+
+            nav.header__menu-wrapper
+                +menu([
+                    { title: 'Main', href: '/', icon: 'home' },
+                    { 
+                        title: 'Nyamushka', 
+                        children: [
+                            { title: 'Flex', href: '/nyamushka-flex.html' },
+                            { title: 'Grid', href: '/nyamushka-grid.html' },
+                            { 
+                                title: 'Level 3', 
+                                children: [
+                                    { title: 'Level 3_1' },
+                                    { title: 'Level 3_2' },
+                                    { 
+                                        title: 'Level 4', 
+                                        children: [
+                                            { title: 'Level 4_1' },
+                                            { title: 'Level 4_2' },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    { title: 'Bundle stats', href: '/stats.html', icon: 'gear' },
+                ])(class='header__menu')
+                button.header__menu-btn
+                    span.menu-btn
+                        i.menu-btn__top
+                        i.menu-btn__middle
+                        i.menu-btn__bottom

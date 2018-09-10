@@ -1,0 +1,67 @@
+@import helpers
+
+/* Common styles */
+*, 
+*:before, 
+*:after
+    box-sizing: border-box
+    vertical-align: baseline
+    padding: 0
+    margin: 0
+    border: 0
+    // line-height: inherit
+
+html,
+body,
+header,
+main,
+footer
+    display: block
+
+html
+    font-size: $html-font-size
+
+html,
+body
+    height: 100%
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    font: inherit
+
+body
+    +style(body)
+    min-width: 320px
+    overflow-x: hidden
+    background-color: #f7f7f7
+
+    +mq-max(320px)
+        overflow-x: auto
+
+/* Generate font style classes */
+@each $name, $params in $font-style
+    ._#{$name}
+        +style($name)
+
+/* Fonts */
+// process as module
+// +font-face('Source Sans Pro', '~fonts/SourceSansPro/source-sans-pro-v11-cyrillic_latin-regular', normal, 400)
+// Copy
++font-face('Source Sans Pro', '/fonts/SourceSansPro/source-sans-pro-v11-cyrillic_latin-regular', normal, 400)
++font-face('Source Sans Pro', '/fonts/SourceSansPro/source-sans-pro-v11-cyrillic_latin-600', normal, 600)
++font-face('Source Sans Pro', '/fonts/SourceSansPro/source-sans-pro-v11-cyrillic_latin-600italic', italic, 600)
+
++font-face('Exo 2', '/fonts/exo-2/Exo2.0-Thin')
++font-face('Trebuchet MS', '/fonts/trebuchet-ms/TrebuchetMS-Regular', normal, 400)
++font-face('Trebuchet MS', '/fonts/trebuchet-ms/TrebuchetMS-Bold', normal, 700)
+
+/* a */
+a
+    color: getColor(link-color)
+
+    &:hover
+        color: getColor(link-color--hover)

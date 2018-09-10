@@ -1,0 +1,48 @@
+include /blocks/svg/svg.pug
+include /blocks/_print/_print.pug
+
+mixin menu(items, elmClass = 'menu')
+    - 
+        const activeItem = items.find(
+            function compare(item){ 
+                return (new RegExp(htmlWebpackPlugin.options.filename)).test(item.href) 
+                || (
+                    item.children && item.children.length
+                        ? item.children.find(compare)
+                        : false
+                )
+            }
+        ) || (elmClass === 'menu' ? items[0] : null)
+
+    ul(class=elmClass)&attributes(attributes)
+        each item in items
+            li(class=[
+                elmClass + '__item',
+                {[elmClass + '__item--active']: activeItem === item},
+            ])
+
+                a(
+                    class=[
+                        elmClass + '__link',
+                        {[elmClass + '__link--active']: activeItem === item},
+                        {
+                            [elmClass + '__link--has-child']: (
+                                item.children && item.children.length > 0
+                            )
+                        },
+                    ],
+                    href=item.href,
+                )
+                    - const icon = item.icon
+                    if icon
+                        div(class=[
+                            elmClass + '__icon',
+                            {[elmClass + '__icon--active']: activeItem === item},
+                        ])
+                            +svg-sprite(require('blocks/menu/sprite/'+icon+'.svg'), 20, 20)
+                    div(class=elmClass + '__text') #{item.title}
+                    i(class=elmClass + '__link-arrow')
+
+                if item.children && item.children.length > 0
+                    +menu(item.children, 'sub-menu')
+

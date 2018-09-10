@@ -1,0 +1,120 @@
+@import helpers
+
+/* menu */
+$animation-sub-menu: .2s
+
+.menu, 
+.sub-menu
+    display: flex
+    flex-direction: row
+    list-style: none
+    background-color: getColor(link-bg-color)
+
+    &__item
+        position: relative
+        cursor: pointer
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+        &--active
+            background-color: getColor(link-bg-color--active)
+
+        &:not(:last-child)
+            border-right: 1px solid getColor(link-separator)
+
+        &:not([class$=__item--active]):hover
+            background-color: getColor(link-bg-color--hover)
+            
+        &:hover > .sub-menu
+            visibility: visible
+            animation: showSubMenu .225s cubic-bezier(0.175, 0.885, 0.32, 1.10)
+            animation-fill-mode: forwards
+
+    &__link        
+        display: flex
+        flex-direction: row
+        flex: 1 0 auto
+        align-items: center
+        color: getColor(link-menu-color)
+        text-decoration: none    
+        padding: 2.5rem
+
+        &:hover
+            color: getColor(link-menu-color--hover)
+        
+        &--active
+            font-weight: 600
+            color: getColor(link-menu-color--active)
+        
+        &--has-child
+            > [class$='__link-arrow']
+                display: block
+    
+    &__icon
+        position: relative
+        width: 30px
+        height: 20px
+        padding-right: 0.5em
+
+        & > svg > use
+            fill: getColor(link-menu-color)
+
+        &--active > svg > use
+            fill: getColor(link-menu-color--active)
+
+    &__text
+        flex: 1 0 auto
+
+    &__link-arrow
+        display: none
+        width: 8px
+        height: 8px
+        margin-left: 10px
+        border: 2px solid getColor(link-menu-color--active)
+        border-radius: 1px
+        border-top-width: 0
+        border-left-width: 0
+        transform: rotate(45deg)        
+ 
+.sub-menu
+    position: absolute
+    flex-direction: column
+    left: 0
+    min-width: 100%
+    visibility: hidden
+    animation: hideSubMenu .2s cubic-bezier(0.175, 0.885, 0.32, 1.10)
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.10)
+    
+    &__item
+        &:not(:last-child)
+            border-right: 0
+            border-bottom: 1px solid getColor(link-separator)
+
+    &__link
+        padding: 1.25rem 2.5rem
+
+    &__link-arrow
+        transform: rotate(-45deg)
+
+.sub-menu > .sub-menu__item > .sub-menu
+    left: 100%
+    top: 1px
+
+@keyframes showSubMenu
+    from
+        transform: translateY(-2rem)
+        opacity: 0
+    
+    to
+        transform: translateY(0)
+        opacity: 1
+    
+@keyframes hideSubMenu
+    from
+        transform: translateY(0)
+        opacity: 1
+    to
+        transform: translateY(-2rem)
+        opacity: 0
+    
+
+    

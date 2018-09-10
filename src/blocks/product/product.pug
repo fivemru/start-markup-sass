@@ -1,0 +1,43 @@
+mixin product(product={})
+    - 
+        // Require image
+        let imgPath = '';
+        switch(product.image) {
+            case 'cat.png': imgPath=require('blocks/product/images/cat.png'); break;
+            default: imgPath=require('blocks/product/images/cat.png');
+        }
+
+    //- 
+    li.product(
+        data-disabled=product.disabled, 
+        data-checked=product.checked, 
+    )&attributes(attributes)
+        input.product__checkbox(
+            id=product.id,
+            type='checkbox',
+            checked=product.checked
+        )
+        .product__container
+            .product__content
+                img.product__image(src=imgPath, alt=product.name + ' ' + product.taste)
+                .product__header
+                    .product__header-default= product.headerText
+                    .product__header-checked= product.headerCheckedHover
+                .product__name= product.name
+                .product__taste= product.taste
+                ul.product__features
+                    each feature in product.features
+                        li
+                            if feature.amount
+                                b.product__feature-amount= feature.amount
+                            |  #{feature.text}
+                .product__weight-container
+                    .product__weight= product.weight
+                    .product__unit кг
+                
+        .product__footer
+            .product__footer-default
+                | #{product.footerDefault}
+                a.product__footer-link(href='#', tabindex=-1) купи.
+            .product__footer-checked= product.footerChecked
+            .product__footer-disabled= product.footerDisabled

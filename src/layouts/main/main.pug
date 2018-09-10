@@ -1,0 +1,38 @@
+include /blocks/_print/_print.pug
+include /blocks/svg/svg.pug
+include /blocks/header/header.pug
+include /blocks/footer/footer.pug
+
+doctype html
+html(lang="en")
+    head
+        block title
+            title Title layout main.pug
+        
+        block meta
+            meta(charset='utf-8')
+            meta(name='viewport', content='width=device-width, user-scalable=0, initial-scale=1')
+            meta(http-equiv="x-ua-compatible", content="ie=edge")
+
+        script.
+            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+                document.write('<script src="/js/ie-polyfill.js"><\/script>');
+    body
+        //- +insert-svg-sprite()       
+        .page.page--not-loaded
+            block header
+                +header
+                
+            main.page__main
+                block content
+
+                block result
+                    section.section.page__container
+                        .section__content.section__content--transparent
+                            h2._h2 Result
+                    block result__content
+
+            block footer
+                +footer
+
+        

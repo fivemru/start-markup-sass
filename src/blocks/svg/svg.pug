@@ -1,0 +1,44 @@
+include /blocks/_print/_print.pug
+
+//- insert after <body> tag, or use svg4everybody for support ua
+mixin insert-svg-sprite()
+    .__inline-svg
+        if htmlWebpackPlugin.files.sprites
+            each svgContent, file in htmlWebpackPlugin.files.sprites
+                - svgContent = svgContent.replace(/<([^\/\s]+)\s+([^>]+)\s+\/>/ig, '<$1 $2></$1>')
+                - svgContent = svgContent.replace(/display: none;/i, 'display: inline;')
+                script
+                    | document.addEventListener('DOMContentLoaded', function(){
+                    include /blocks/svg/replaceUrl.js
+                    | replaceUrl('#{file}');
+                    | });
+                != svgContent
+
+//- ie 11 not support 
+//- mixin icon(id, width=24, height=24, fill='black', stroke=null)
+mixin svg-sprite(id, width, height, fill, stroke)
+    svg(
+        width=width,
+        height=height,
+        role='img',
+        viewbox='0 0 ' + width + ' ' + height,
+    )
+        use(xlink:href=id.url, fill=fill, stroke=stroke)
+
+mixin svg-inline(content, width, height, fill, stroke)
+    svg(
+        width=width,
+        height=height,
+        role='img',
+        fill=fill,
+        stroke=stroke,
+        viewbox='0 0 ' + width + ' ' + height,
+    )&attributes(attributes)
+        != content
+
+mixin svg-img(path, width, height)
+    img(
+        width=width,
+        height=height,
+        src=path,
+    )&attributes(attributes)
