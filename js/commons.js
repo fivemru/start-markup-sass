@@ -1057,7 +1057,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
       id: "blank-usage",
       viewBox: "0 0 7 9",
-      url: "/" + "images/svg/sprite.svg?54b4e4#blank-usage",
+      url: __webpack_require__.p + "images/svg/sprite.svg?54b4e4#blank-usage",
       toString: function () {
         return this.url;
       }
