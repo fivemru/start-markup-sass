@@ -16,14 +16,14 @@ mixin insert-svg-sprite()
 
 //- ie 11 not support 
 //- mixin icon(id, width=24, height=24, fill='black', stroke=null)
-mixin svg-sprite(id, width, height, fill, stroke)
+mixin svg-sprite(file, width, height, fill, stroke)
     svg(
         width=width,
         height=height,
         role='img',
         viewbox='0 0 ' + width + ' ' + height,
     )
-        use(xlink:href=id.url, fill=fill, stroke=stroke)
+        use(xlink:href=file.url, fill=fill, stroke=stroke)
 
 mixin svg-inline(content, width, height, fill, stroke)
     svg(
