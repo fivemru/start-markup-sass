@@ -1,75 +1,83 @@
 # start-markup
 
+The starter kit for markup.
+
 ## Live
 https://fivemru.github.io/start-markup/
 
 ## Concept
 
----
-
 ### Paths
 
-* __PUG__
-The path has resolved in __`./src`  folder__.
+* PUG
+
+    The path has resolved in __`./src`  folder__.
 
     ```pug
     require('blocks/item/file.ext')
     ```
 
-* __SASS__
-The path has resolved in __current folder__.
+* SASS
+
+    The path has resolved in __current folder__ of `__ITEM__` in `(layouts|pages|blocks)`.
 
     ```pug
     require('./file.ext')
     ```
 ---
 
-### Sprites
+### Images
 
-#### PNG
+Put all image files in `(layouts|pages|blocks)/__ITEM__/(`__images__`/)?*.(png|jpe?g)`
+
+---
+
+### PNG sprite
 
 Put files in `(layouts|pages|blocks)/__ITEM__/`__sprite__`/sprite-1.png`
 
-* __SASS:__
+* SASS
 
     ```sass
     .icon-tw
         +sprite($sprite-1)
     ```
+---
 
-#### SVG
+### SVG
+
+#### SVG sprite
 
 Put files in `(layouts|pages|blocks)/__ITEM__/`__sprite__`/*.svg`
-
-* __Pug:__
+* Pug
 
     ```pug
     //- +svg-sprite(file, width, height, fill, stroke)
     +svg-sprite(require('blocks/menu/sprite/file.svg'), 20, 20)
     ```
 
-##### Inline, into html
+#### Inline, into html
 
 Put files in `(layouts|pages|blocks)/__ITEM__/`__inline__`/*.svg`
 
-* __Pug:__
+* Pug
 
     ```pug
     //- svg-inline(content, width, height, fill, stroke)
     +svg-inline(require('blocks/menu/inline/file.svg'), 20, 20)
     ```
 
-##### External files
+#### External files
 
 Put files in `(layouts|pages|blocks)/__ITEM__/(`__images__`/)?*.svg`
 
-* __Pug:__
+* Pug
 
     ```pug
     img(src=require('blocks/logo/logo.svg')
     img(src=require('blocks/logo/images/logo.svg')
     ```
-* __SASS:__
+* SASS
 
     ```pug
     background-image: url('./logo.svg')
