@@ -18,7 +18,7 @@ export default () => ({
                         options: {
                             extract: true,
                             // esModule: false,
-                            publicPath: '/',
+                            // publicPath: '/',
                             spriteFilename: isProd
                                 ? 'images/svg/sprite-[hash:6].svg'
                                 : 'images/svg/sprite.svg?[hash:6]',

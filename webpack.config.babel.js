@@ -5,8 +5,8 @@ import js from './webpack/js'
 import iePolyfill from './webpack/ie.polyfill'
 import sass from './webpack/sass'
 import pug from './webpack/pug'
-// import fonts from './webpack/fonts';
-import fontsCopy from './webpack/fonts.copy'
+import fonts from './webpack/fonts'
+// import fontsCopy from './webpack/fonts.copy'
 import images from './webpack/images'
 import png from './webpack/png'
 import svg from './webpack/svg'
@@ -60,8 +60,8 @@ let common = merge.smart([
     iePolyfill(),
     sass(),
     pug(pages),
-    // fonts(),
-    fontsCopy(),
+    fonts(),
+    // fontsCopy(),
     images(),
     png(),
     svg(),

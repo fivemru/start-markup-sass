@@ -9,12 +9,12 @@ mixin header()
 
             nav.header__menu-wrapper
                 +menu([
-                    { title: 'Main', href: '/', icon: 'home' },
+                    { title: 'Main', href: './', icon: 'home' },
                     { 
                         title: 'Nyamushka', 
                         children: [
-                            { title: 'Flex', href: '/nyamushka-flex.html' },
-                            { title: 'Grid', href: '/nyamushka-grid.html' },
+                            { title: 'Flex', href: './nyamushka-flex.html' },
+                            { title: 'Grid', href: './nyamushka-grid.html' },
                             { 
                                 title: 'Level 3', 
                                 children: [
@@ -31,7 +31,7 @@ mixin header()
                             },
                         ],
                     },
-                    { title: 'Bundle stats', href: '/stats.html', icon: 'gear' },
+                    { title: 'Bundle stats', href: './stats.html', icon: 'gear' },
                 ])(class='header__menu')
                 button.header__menu-btn
                     span.menu-btn
