@@ -12,21 +12,10 @@ import png from './webpack/png'
 import svg from './webpack/svg'
 import analyzer from './webpack/analyzer'
 import browsersync from './webpack/browsersync'
+// pages
+import pages from './pages.config.js'
 
 const isProd = process.env.NODE_ENV === 'production'
-
-// Entry pages
-const pages = {
-    index: resolve(__dirname, 'src/pages/index'),
-    'nyamushka-flex': {
-        path: resolve(__dirname, 'src/pages/nyamushka-flex'),
-        data: { products: require('./src/data/products.json') },
-    },
-    'nyamushka-grid': {
-        path: resolve(__dirname, 'src/pages/nyamushka-grid'),
-        data: { products: require('./src/data/products.json') },
-    },
-}
 
 let common = merge.smart([
     {
