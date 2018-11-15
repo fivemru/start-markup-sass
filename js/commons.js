@@ -5,17 +5,17 @@
 "use strict";
 
 
-__webpack_require__(4);
+__webpack_require__(3);
 
-__webpack_require__(6);
+__webpack_require__(5);
 
 __webpack_require__(1);
 
-__webpack_require__(11);
+__webpack_require__(10);
 
-__webpack_require__(24);
+__webpack_require__(23);
 
-__webpack_require__(27);
+__webpack_require__(26);
 
 /***/ }),
 /* 1 */
@@ -24,69 +24,24 @@ __webpack_require__(27);
 "use strict";
 
 
-__webpack_require__(9);
+__webpack_require__(8);
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(35);
-
-// Block code
-
-document.addEventListener('DOMContentLoaded', main);
-
-function main() {
-    var products = document.querySelectorAll('.product');
-    Array.from(products).forEach(function (product) {
-        var container = product.querySelector('.product__container');
-        var checkbox = product.querySelector('.product__checkbox');
-        var link = product.querySelector('.product__footer-link');
-
-        var change = function change(e) {
-            e.preventDefault();
-            var isChecked = product.hasAttribute('data-checked');
-            var isDisabled = product.hasAttribute('data-disabled');
-            if (isChecked || isDisabled) {
-                product.removeAttribute('data-checked');
-                checkbox.checked = false;
-            } else {
-                if (e.target !== link) product.setAttribute('data-mouseleave', '');
-                product.setAttribute('data-checked', '');
-                checkbox.checked = true;
-            }
-        };
-
-        var removeLeaveAttr = function removeLeaveAttr() {
-            product.removeAttribute('data-mouseleave');
-        };
-
-        container.addEventListener('mouseleave', removeLeaveAttr);
-        container.addEventListener('click', change);
-        checkbox.addEventListener('change', change);
-        link.addEventListener('click', change);
-    });
-}
-
-/***/ }),
-/* 3 */,
-/* 4 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(7);
+__webpack_require__(6);
 
 window.addEventListener('load', main);
 
@@ -95,31 +50,31 @@ function main() {
 }
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 8 */,
-/* 9 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 10 */,
-/* 11 */
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+__webpack_require__(11);
+
 __webpack_require__(12);
 
-__webpack_require__(13);
-
-__webpack_require__(22);
+__webpack_require__(21);
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } // Dependencied
 
@@ -242,7 +197,7 @@ function setOffset(el) {
 }
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /**
@@ -972,6 +927,17 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 
 /***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(13);
+
+__webpack_require__(19);
+
+/***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -980,28 +946,17 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 __webpack_require__(14);
 
-__webpack_require__(20);
+__webpack_require__(16);
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-__webpack_require__(15);
-
-__webpack_require__(17);
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 16 */,
-/* 17 */
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1009,11 +964,11 @@ __webpack_require__(17);
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _blank = __webpack_require__(18);
+var _blank = __webpack_require__(17);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _replaceUrl = __webpack_require__(19);
+var _replaceUrl = __webpack_require__(18);
 
 var _replaceUrl2 = _interopRequireDefault(_replaceUrl);
 
@@ -1049,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1057,14 +1012,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
       id: "blank-usage",
       viewBox: "0 0 7 9",
-      url: __webpack_require__.p + "images/svg/sprite.svg?54b4e4#blank-usage",
+      url: __webpack_require__.p + "images/svg/sprite.svg?ecab22#blank-usage",
       toString: function () {
         return this.url;
       }
     });
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1093,50 +1048,37 @@ try {
 }
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 21 */,
-/* 22 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 23 */,
-/* 24 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(25);
+__webpack_require__(24);
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 26 */,
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */
+/* 25 */,
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
