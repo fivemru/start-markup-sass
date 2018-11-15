@@ -147,26 +147,12 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([33,0]);
+/******/ 	deferredModules.push([34,0]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ 33:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(0);
-
-__webpack_require__(34);
-
-__webpack_require__(37);
-
-/***/ }),
 
 /***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
@@ -174,50 +160,11 @@ __webpack_require__(37);
 "use strict";
 
 
-__webpack_require__(35);
+__webpack_require__(0);
 
-// Block code
+__webpack_require__(2);
 
-document.addEventListener('DOMContentLoaded', main);
-
-function main() {
-    var products = document.querySelectorAll('.product');
-    Array.from(products).forEach(function (product) {
-        var container = product.querySelector('.product__container');
-        var checkbox = product.querySelector('.product__checkbox');
-        var link = product.querySelector('.product__footer-link');
-
-        var change = function change(e) {
-            e.preventDefault();
-            var isChecked = product.hasAttribute('data-checked');
-            var isDisabled = product.hasAttribute('data-disabled');
-            if (isChecked || isDisabled) {
-                product.removeAttribute('data-checked');
-                checkbox.checked = false;
-            } else {
-                if (e.target !== link) product.setAttribute('data-mouseleave', '');
-                product.setAttribute('data-checked', '');
-                checkbox.checked = true;
-            }
-        };
-
-        var removeLeaveAttr = function removeLeaveAttr() {
-            product.removeAttribute('data-mouseleave');
-        };
-
-        container.addEventListener('mouseleave', removeLeaveAttr);
-        container.addEventListener('click', change);
-        checkbox.addEventListener('change', change);
-        link.addEventListener('click', change);
-    });
-}
-
-/***/ }),
-
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
+__webpack_require__(37);
 
 /***/ }),
 
