@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import merge from 'webpack-merge'
 // Webpack parts
 import js from './webpack/js'
-import iePolyfill from './webpack/ie.polyfill'
+// import iePolyfill from './webpack/ie.polyfill'
 import sass from './webpack/sass'
 import pug from './webpack/pug'
 import fonts from './webpack/fonts'
@@ -19,10 +19,10 @@ const isProd = process.env.NODE_ENV === 'production'
 
 let common = merge.smart([
     {
-        // mode: isProd ? 'production' : 'development',
-        mode: 'production',
+        mode: isProd ? 'production' : 'development',
+        // mode: 'production',
         // devtool: isProd ? 'none' : 'source-maps',
-        devtool: 'none',
+        devtool: !isProd ? 'cheap-module-inline-source-map' : 'none',
         //
         entry: {
             ...Object.entries(pages).reduce((entries, [name, options]) => {
@@ -39,14 +39,14 @@ let common = merge.smart([
             pathinfo: false,
         },
         //
-        context: resolve(__dirname, 'src'),
+        // context: resolve(__dirname, 'src'),
         resolve: {
             modules: [resolve(__dirname, 'src'), 'node_modules'],
             // extensions: ['.js', '.scss', '.sass'],
         },
     },
     js(),
-    iePolyfill(),
+    // iePolyfill(),
     sass(),
     pug(pages),
     fonts(),
