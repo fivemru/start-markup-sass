@@ -25,6 +25,7 @@ let common = merge.smart([
         devtool: !isProd ? 'cheap-module-inline-source-map' : 'none',
         //
         entry: {
+            polyfills: './src/polyfills.js',
             ...Object.entries(pages).reduce((entries, [name, options]) => {
                 const path =
                     typeof options === 'object' ? options.path : options

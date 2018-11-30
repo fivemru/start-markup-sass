@@ -5,8 +5,7 @@
             {
                 "targets": {
                     "browsers": ["ie >= 10", "> 2%"]
-                },
-                "useBuiltIns": "usage"
+                }
             }
         ]
     ]

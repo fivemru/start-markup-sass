@@ -14,8 +14,4 @@ function replaceUrl(url) {
     })
     console.log('Replaced svg url for IE 9+: ' + replaced)
 }
-try {
-    module.exports = replaceUrl
-} catch (e) {
-    ;('error')
-}
+export default replaceUrl

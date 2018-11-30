@@ -79,7 +79,7 @@ function toggleModal(e) {
     if (e) e.preventDefault()
 
     const scrollPos = window.pageYOffset
-    const prevScrollPos = page.dataset.scrollPos
+    const prevScrollPos = page.getAttribute('data-scroll-pos')
     page.classList.toggle(openedClass)
     const isOpened = page.classList.contains(openedClass)
 

@@ -12,10 +12,7 @@ html(lang="en")
             meta(charset='utf-8')
             meta(name='viewport', content='width=device-width, user-scalable=0, initial-scale=1')
             meta(http-equiv="x-ua-compatible", content="ie=edge")
-
-        script.
-            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
-                document.write('<script src="js/ie-polyfill.js"><\/script>');
+            //- script(src="https://cdn.polyfill.io/v2/polyfill.min.js")
     body
         //- +insert-svg-sprite()       
         .page.page--not-loaded

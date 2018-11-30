@@ -13,7 +13,7 @@ export default (pages = {}) => ({
             return new HtmlWebpackPlugin({
                 filename: `${name}.html`,
                 template: resolve(path, `${name}.pug`),
-                chunks: [name, 'commons'],
+                chunks: ['polyfills', 'commons', name],
                 data,
             })
         }),
