@@ -4,7 +4,7 @@ export default () => ({
     module: {
         rules: [
             {
-                test: /fonts\/.+\.(woff2?|ttf)$/i,
+                test: /fonts[\\/].+\.(woff2?|ttf)$/i,
                 include: resolve(__dirname, '../src'),
                 loader: 'file-loader',
                 options: {
