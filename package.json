@@ -1,5 +1,5 @@
 {
-    "name": "start-markup",
+    "name": "start-markup-sass",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
@@ -11,7 +11,7 @@
         "server": "browser-sync start --server dist --files dist --port 3000",
         "precommit": "lint-staged",
         "eslint": "eslint .",
-        "deploy": "gh-pages -d dist"
+        "ghpages": "gh-pages -d dist"
     },
     "lint-staged": {
         "*.{js, jsx}": [

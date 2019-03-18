@@ -1,7 +1,7 @@
-# start-markup
+# Starter markup kit with sass
 
 The starter kit for markup.
-The starter kit without `node-sass` [here](https://github.com/fivemru/start-markup).
+The starter kit without `node-sass` [here](https://github.com/fivemru/start-markup-scss).
 
 
 ## Demo
