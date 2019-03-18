@@ -1,9 +1,12 @@
 # start-markup
 
 The starter kit for markup.
+The starter kit without `node-sass` [here](https://github.com/fivemru/start-markup).
 
-## Live
-https://fivemru.github.io/start-markup/
+
+## Demo
+
+https://fivemru.github.io/start-markup-sass/
 
 ## Concept
 
